@@ -1,0 +1,19 @@
+h5 {
+    color: #ffffff;
+    letter-spacing: 4px;
+    font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif!important;
+}
+
+#footer {
+    background-color: #212529;
+    display: flex;
+    
+    
+}
+
+#footer p {
+    color: #ffffff;
+    letter-spacing: 4px;
+    font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif!important;
+}
+

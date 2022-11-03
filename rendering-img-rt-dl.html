@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rendering de Imagens com RayTracing e DeepLearning</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/menu/menu.css">
+    <link rel="stylesheet" href="styles/main/main.css">
+    <link rel="stylesheet" href="styles/footer/footer.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-dark bg-dark fixed-top">
+            <div class="container-fluid">
+                <a id="titulo" class="navbar-brand" href="#">RENDERING DE IMAGENS COM RAYTRACING E DEEPLEARGING</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
+                    aria-labelledby="offcanvasDarkNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">SEJA BEM-VINDO!</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="#">INÍCIO</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">SOBRE NÓS</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">RENDERING DE IMAGENS COM RAYTRACING E DEEPLEARNING</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="normal">
+            <h4 class="inicio">INTRODUÇÃO</h4>
+            <p>
+                A Computação Gráfica (CG) pode ser definida como a área da computação que utiliza computadores para
+                manipular
+                e criar imagens digitais [Gonzalez, 2010; Marques, 1999;
+                Shirley, 2009]. Podendo ser dividida entre as áreas: Síntese de imagens (Modelagem, Renderização,
+                Animação),
+                Realidade virtual, Processamento de imagens e Visão computacional (e Análise de imagens). A renderização
+                de imagens é um dos campos base em CG, onde, renderizar
+                uma cena tridimensional é criar uma imagem bidimensional com realismo visual, determinando a
+                visibilidade
+                dos objetos que compõem a cena por um determinado
+                ponto de vista [Shirley, 2009].Uma das técnicas de representação de cenas elaboradas com vários objetos
+                e efeitos
+                visuais (sombreamento, sombra, reflexão, refração, textura, transparência) mais conhecida e utilizada é
+                o Ray
+                Tracing. O ray tracing simula a geometria óptica de raios
+                (de luz) em um espaço tridimensional da cena para criação
+                de imagens pelo traçado (reverso) da reflexão dos raios de
+                uma ou mais fontes luminosas, à superfície dos objetos,
+                plano de projeção e observador [Azevedo, 2003; Foley,
+                1997; Shirley, 2009]. O uso de técnicas de Inteligência
+                Artificial (IA), especialmente Deep Learning em Aprendizagem de Máquina (ML), para renderização de
+                imagens
+                (em tempo real) de alta qualidade e hiper realismo tem
+                mostrado resultados eficientes [Che et al, 2019; Deschaintre, 2019; Hall, 2014; Su et al,2016]. Esta
+                pesquisa teve
+                como objetivo implementar um rendering de imagens utilizando deep learning e ray tracing, para
+                renderização de
+                imagens de alta qualidade, considerando o tempo de processamento, qualidade das imagens e o realismo
+                visual.
+            </p>
+        </section>
+
+        <section class="imagem" id="img1">
+            <h4>METODOLOGIA</h4>
+            <div class="metodologia">
+                <p>
+                    1. Levantamento bibliográfico: Aquisição de conhecimentos específicos da área da pesquisa, que
+                    inclui
+                    conhecimentos sobre técnicas de renderização (software e hardware),
+                    ray tracing (off-line e em tempo real) [Foley, 1997; Shirley,
+                    2009], iluminação (reflexão, refração, sombreamento) local e global, e deep learning aplicado à CG
+                    (redes neurais
+                    convolucionais (CNN) para realismo visual e resolução de
+                    imagens) [Deschaintre, V; Hall, 2014; Kruskal, et. al,
+                    2018; LeCun, Bengio, Hilton, 2015; Mitra el al., 2018;
+                    Sato, Imura, 2017; Yang et al., 2019]
+                </p>
+                <p>
+                    2. Levantamento de requisitos: Foram utilizados o ray
+                    tracing para renderizar as imagens do dataset e a SRCNN
+                    foi utilizada para alterar a resolução das imagens renderizadas, sendo necessários (e/ou utilizados)
+                    os seguintes
+                    softwares: CUDA 11.6, g++ 11.2.0, Ubuntu 22.04,
+                    Python 3.10.4, Tensorflow 2.9.1; e hardwares: placa de
+                    vídeo NVIDIA RTX 2070, processador intel core i7-8700
+                    e 32Gb de memória RAM, processador intel core i5-8265
+                    U e 8Gb de memória RAM, processador i5-10300H e 8Gb
+                    de memória RAM com uma placa de vídeo GTX 1650.
+                </p>
+                <p>
+                    3. Modelagem: O rendering de imagens com ray tracing
+                    e deep learning foi dividido em duas etapas: ray tracing
+                    e SRCNN. A primeira parte consiste na construção do
+                    dataset composto por imagens de baixa resolução e alta
+                    resolução para treinamento da SRCNN, utilizando o ray
+                    tracing. A segunda parte consiste em treinar a SRCNN
+                    para alterar a resolução de imagens renderizadas, com objetivo de entrar com uma imagem de baixa
+                    resolução e
+                    reconstruir a imagem para uma imagem de alta resolução.
+                </p>
+                <p>
+                    4. Implementação: Para a implementação do ray tracing foi utilizado como referências os livros "Ray
+                    Tracing:
+                    in One Weekend" e "Ray Tracing: The Next Weekend"
+                    de Peter Shirley [Shirley], e "Computer graphics from
+                    scratch" de Gambetta[Gambetta, 2021]. Para a implementação da SRCNN foi utilizado o artigo
+                    "ImageSuperResolution Using Deep Convolutional Networks" [Dong et
+                    al., 2015] juntamente com o material de apoio dos autores
+                    [Dong et al.].
+                </p>
+                <p>
+                    5. Teste: O dataset possui 36 imagens de 1200x675 pixels, metade foi utilizada para treinamento e
+                    validação e
+                    o restante para teste. A análise dos resultados do treinamento e da validação foram utilizadas as
+                    métricas de qualidade de imagens: o erro total de treinamento (loss) e
+                    o Peak-Signal-to-Noise Ratio (PSNR) [Horé, Ziou, 2010;
+                    Sara, Akter, Uddin, 2019].
+                </p>
+            </div>
+        </section>
+
+        <section class="normal">
+            <h4 class="inicio">RESULTADOS E DISCUSSÃO</h4>
+            <p>
+                A avaliação da qualidade das imagens restauradas comumente utilizadas são as métricas Mean Square Error
+                (loss)
+                e Peak-Signal-to-Noise Ratio (PSNR) [Avcibas, Sankur,
+                Sayood, 2002; Horé, Ziou, 2010; Sara, Akter, Uddin,
+                2019]. O PSNR está relacionado com o loss, quando o
+                loss tende a zero o PSNR aumenta, fornecendo uma maior
+                qualidade nas imagens. O PSNR é uma métrica amplamente utilizada para avaliar quantitativamente a
+                qualidade
+                da restauração das imagens, estando relacionada à qualidade perceptiva das imagens resultantes.
+                O modelo utilizado para treinar a SRCNN foi o modelo
+                9-1-5, considerando a relação entre desempenho e velocidade da rede. O modelo 9-1-5 configurado para f1
+                = 9, f2
+                = 1, f3 = 5, n1 = 64 e n2 = 32 diz respeito aos tamanhos
+                e quantidades de filtros nas camadas da rede. Os resultados do treinamento da SRCNN, utilizando o modelo
+                9-1-5,
+                para 200k épocas, foram: 42.42dB para o treinamento e
+                43.27dB para a validação, com 0.57x10-4 e 0.47x10-4 para
+                a função loss, respectivamente.
+            </p>
+
+            <div id="cards">
+                <div class="card-imgs">
+                    <div class="card" style="width: 25rem;  margin-right: 5em;  margin-bottom: 3em; margin-left: 5em;">
+                        <img src="../../imagens/RayTracingImage1.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text">(a) Imagem de baixa resolução.</p>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 25rem; margin-right: 5em; margin-bottom: 3em; margin-left: 5em;">
+                        <img src="../../imagens/RayTracingImage1.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text">(b) Recorte da imagem de baixa resolução.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-imgs">
+                    <div class="card" style="width: 25rem; margin-right: 5em; margin-left: 5em;">
+                        <img src="../../imagens/RayTracingImage1.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text">(c) Imagem gerada pela SRCNN.</p>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 25rem; margin-right: 5em; margin-left: 5em;">
+                        <img src="../../imagens/RayTracingImage1.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text">(d) Recorte da imagem gerada pela SRCNN.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="imagem" id="img2">
+            <h4>CONCLUSÃO</h4>
+            <div class="metodologia">
+                <p>
+                    A resolução de uma imagem está relacionada à qualidade
+                    e a quantidade de detalhes que uma imagem possui. O
+                    processo de renderização converte uma cena 3D em uma
+                    representação 2D, onde o grau de realismo desta representação está relacionada à grande capacidade
+                    computacional consumida para tratar todos os detalhes da cena. O
+                    ray tracing é muito utilizado, em aplicações offlines, para
+                    gerar imagens fotorealísticas. Estabelecendo uma relação
+                    entre qualidade de uma imagem e tempo de renderização,
+                    este projeto obteve resultados preliminares considerando a
+                    renderização de imagens de baixa resolução e aplicadas a
+                    SRCNN obter imagens de melhor qualidade visual. Para
+                    isso, a SRCNN foi treinada com imagens renderizadas com
+                    diferentes configurações para definição dos detalhes contidos na cena, dentre elas, a quantidade de
+                    raios por pixel
+                    e a alteração da quantização. Os resultados são promissores, porém, alguns ajustes são necessários
+                    para obter
+                    imagens de alta resolução, tais como, alteração da quantidade, bem como análise das características
+                    de representação dos dados do dataset. Um desempenho adicional
+                    pode ser obtido explorando mais filtros e mais camadas,
+                    bem como outras estratégias de treinamento.
+                </p>
+            </div>
+        </section>
+
+        <section class="normal">
+            <h4 class="inicio">AGRADECIMENTOS</h4>
+            <p>
+                Agradecimentos ao CNPq que propiciou uma bolsa de iniciação para este projeto, que inicialmente se
+                caracterizava
+                como voluntário; e ao Departamento de Computação da
+                Universidade do Estado do Rio Grande do Norte pelo apoio
+                tecnológico, estrutural e científico.
+            </p>
+            <h4 class="inicio">REFERÊNCIAS</h4>
+            <p>
+                [1] Avcibas, I., Sankur, B., Sayood, K., Statistical evaluation of
+                image quality measures. Journal of Electronic Imaging, , vol.
+                11, no. 2, pp. 206-223, 2002. <br>
+                [2] Azevedo, E., Conci, A., Computação gráfica: geração de
+                imagens., Rio de Janeiro: Campus, 2003. <br>
+                [3] Che, L., Sun, C., Takama, Y, Synthesizing NPR Styled Street
+                View Animation Based on Deep Learning, International
+                Conference on Technologies and Applications of Artificial
+                Intelligence (TAAI), Taiwan, 2019. <br>
+                [4] Deschaintre, V, Material acquisition using deep learning., ACM
+                SIGGRAPH, no. 3, pp. 1-4,2019. <br>
+                [5] Dong, C., Loy, C. C., He, K., Tang, X, Image Super-Resolution
+                using Deep Convolutional Networks, IEEE Transactions on
+                Pattern Analysis and Machine Intelligence (TPAMI), 2015. <br>
+                [6] Dong, C., Loy, C. C., He, K., Tang, X., Image
+                Super-Resolution using Deep Convolutional Networks,http:
+                //mmlab.ie.cuhk.edu.hk/projects/SRCNN.html
+                ,Acessado: 08 fev. de 2022. <br>
+                [7] Gonzalez, R. C., Woods, R. E, Processamento de imagens
+                digitais, São Paulo: Pearson, 2010. <br>
+                [8] Shirley, P., Ray Tracing in One Weekend: The Book Series.,
+                https://raytracing.github.io/ Acessado: 08 jul. de 2022.
+            </p>
+        </section>
+
+    </main>
+
+    <footer>
+        <div id='footer' class="card text-center bg-dark'">
+            <div class="card-body">
+              <p>Developed by <a href="https://www.linkedin.com/in/carlos-eduardo-b0baa5229/" target="_blank">Cadu Lucena.</a></p>
+            </div>
+          </div>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
+        integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

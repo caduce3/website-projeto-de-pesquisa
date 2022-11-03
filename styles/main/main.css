@@ -1,0 +1,63 @@
+section {
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+    line-height: 2em;
+    padding-left: 3%;
+    padding-right: 3%;
+}
+p {
+    font-size: 1.2em;
+}
+
+.inicio {
+    margin-top: 3%;
+    font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif!important;
+}
+
+.normal {
+    text-align: justify;
+}
+
+.imagem {
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
+
+#img1 {
+    background-image: url(../../imagens/RayTracingImage1.png);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+#img2 {
+    background-image: url(../../imagens/RayTracingImage17.jpg);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+section.imagem p {
+    box-shadow: inset 6px 6px 13px 0px black;
+    background-color: rgba(0, 0, 0, 0.541);
+    width: 100%;
+}
+
+.normal {
+    background-color: white;
+    color: rgb(0, 0, 0);
+}
+
+#metodologia {
+    text-align: justify;
+    paddding: 0 5px 0 0;
+}
+
+.card-imgs {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
