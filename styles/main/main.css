@@ -21,6 +21,7 @@ p {
 .imagem {
     background-color: rgb(0, 0, 0);
     color: white;
+    text-align: justify;
 }
 
 #img1 {

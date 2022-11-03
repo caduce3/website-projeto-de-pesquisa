@@ -17,3 +17,12 @@ h5 {
     font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif!important;
 }
 
+a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+a:hover {
+   color: #808080;
+}
+
