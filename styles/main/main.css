@@ -62,3 +62,10 @@ section.imagem p {
     justify-content: center;
 }
 
+@media (max-width: 750px) {
+    #cards .card-body {
+        display: none;
+    }
+}
+
+
